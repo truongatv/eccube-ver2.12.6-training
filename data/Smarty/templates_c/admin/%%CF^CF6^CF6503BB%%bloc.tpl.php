@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2018-10-17 15:13:02
+<?php /* Smarty version 2.6.26, created on 2018-10-17 15:43:24
          compiled from design/bloc.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'script_escape', 'design/bloc.tpl', 4, false),array('modifier', 'h', 'design/bloc.tpl', 4, false),array('modifier', 'sfGetErrorColor', 'design/bloc.tpl', 15, false),array('modifier', 'number_format', 'design/bloc.tpl', 195, false),)), $this); ?>

@@ -1,0 +1,1 @@
+DELETE FROM dtb_blocposition WHERE device_type_id = 10 AND bloc_id = (SELECT bloc_id FROM dtb_bloc WHERE filename = 'disqus');DELETE FROM dtb_bloc WHERE filename = 'disqus';

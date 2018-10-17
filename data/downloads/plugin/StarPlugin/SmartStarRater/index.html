@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-style-type" content="text/css" />
+	<meta http-equiv="content-script-type" content="text/javascript" />
+	<title>AJAX Smart Star Rater</title>
+	<link rel="stylesheet" type="text/css" href="star.css" />
+	<script type="text/javascript" src="star.js" charset="utf-8"></script>
+	<style type="text/css">
+		body { font-family: "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Osaka, Verdana, sans-serif; }
+		h1 { font-size: 28px; }
+		h2 { font-size: 16px; }
+		body > div { margin: 24px 0; }
+	</style>
+</head>
+
+<body>
+
+<h1>AJAX Smart Star Rater</h1>
+
+<div>
+	<h2>基本形</h2>
+	<div class="star">
+		<div class="star-rect" onmousemove="star.start(event, this, 1);"><ul><li>&nbsp;</li><li style="width: 80%;">&nbsp;</li></ul></div>
+		<div class="star-text">
+			<span class="star-text-rates"><span id="starRates1">80</span>%</span>
+			<span class="star-text-stars"><span id="starStars1">4.0</span>/5</span>
+			<span class="star-text-users"><span id="starUsers1">10</span>users</span>
+			<span class="star-text-alert"><span id="starAlert1"></span></span>
+		</div>
+	</div>
+</div>
+
+<div>
+	<h2>無効化</h2>
+	<div class="star">
+		<div class="star-rect" onmousemove="star.start(event, this, 2, {disabled: 1});"><ul><li>&nbsp;</li><li style="width: 50%;">&nbsp;</li></ul></div>
+		<div class="star-text">
+			<span class="star-text-rates"><span id="starRates2">50</span>%</span>
+			<span class="star-text-stars"><span id="starStars2">2.5</span>/5</span>
+			<span class="star-text-users"><span id="starUsers2">10</span>users</span>
+			<span class="star-text-alert"><span id="starAlert2"></span></span>
+		</div>
+	</div>
+</div>
+
+<div>
+	<h2>10星ステップ1</h2>
+	<div class="star">
+		<div class="star-rect lfloat" onmousemove="star.start(event, this, 3, {length: 10, step: 1});" style="width: 210px;"><ul style="width: 200px;"><li>&nbsp;</li><li style="width: 50%;">&nbsp;</li></ul></div>
+		<div class="star-text lfloat">
+			<span class="star-text-rates"><span id="starRates3">50</span>%</span>
+			<span class="star-text-stars"><span id="starStars3">5.0</span>/10</span>
+			<span class="star-text-users"><span id="starUsers3">10</span>users</span>
+			<span class="star-text-alert"><span id="starAlert3"></span></span>
+		</div>
+		<div class="kfloat"></div>
+	</div>
+</div>
+
+<div>
+	<h2>30星ステップ1.5</h2>
+	<div class="star">
+		<div class="star-rect lfloat" onmousemove="star.start(event, this, 4, {length: 30, step: 1.5});" style="width: 610px;"><ul style="width: 600px;"><li>&nbsp;</li><li style="width: 50%;">&nbsp;</li></ul></div>
+		<div class="star-text lfloat">
+			<span class="star-text-rates"><span id="starRates4">50</span>%</span>
+			<span class="star-text-stars"><span id="starStars4">15.0</span>/30</span>
+			<span class="star-text-users"><span id="starUsers4">10</span>users</span>
+			<span class="star-text-alert"><span id="starAlert4"></span></span>
+		</div>
+		<div class="kfloat"></div>
+	</div>
+</div>
+
+<div>
+	<h2>画像の切り替え</h2>
+	<div class="star">
+		<div class="star-rect" onmousemove="star.start(event, this, 5, {width: 14, height: 14});" style="width: 80px; height: 14px;"><ul style="width: 70px; background: url(img/star_mini.gif);"><li>&nbsp;</li><li style="width: 50%;">&nbsp;</li></ul></div>
+		<div class="star-text">
+			<span class="star-text-rates"><span id="starRates5">50</span>%</span>
+			<span class="star-text-stars"><span id="starStars5">2.5</span>/5</span>
+			<span class="star-text-users"><span id="starUsers5">10</span>users</span>
+			<span class="star-text-alert"><span id="starAlert5"></span></span>
+		</div>
+		<div class="kfloat"></div>
+	</div>
+</div>
+
+<div>
+	<h2>フォームで使う</h2>
+	<form action="index.html" method="get">
+		<table>
+			<tr>
+				<th>評価</th>
+				<td>
+					<div><input type="hidden" name="rates" id="rates" value="0" /></div>
+					<div class="star">
+						<div class="star-rect lfloat" onmousemove="star.start(event, this, 6, {step: 0.5, form: 'rates'});" onclick="star.$('comment').focus();"><ul><li>&nbsp;</li><li style="width: 0%;">&nbsp;</li></ul></div>
+						<div class="star-text lfloat">
+							<span class="star-text-stars"><span id="starStars6">0.0</span>/5</span>
+						</div>
+						<div class="kfloat"></div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<th>コメント</th>
+				<td><input type="text" size="40" name="comment" id="comment" value="comment" /></td>
+			</tr>
+		</table>
+		<p><input type="submit" value="送信する" /></p>
+	</form>
+</div>
+
+<div>
+	<h2>使い方</h2>
+	<p>このスクリプトはページが読み込まれる際の初期化をしません。<br />
+	予め「li要素」の横幅を％単位で与えておきます。（満点5★なら100％）<br />
+	「star.start」の3番目と「span要素」のIDに同じ番号を割り当てて下さい。<br />
+	データを受信する「vote.php」内でクリックされた「評価」と「ID番号」を取得できます。</p>
+</div>
+
+<div>
+	<h2>オプションの変更</h2>
+	<p>「star.start」の4番目にオプションを設定できます。</p>
+	<dl>
+		<dt>使用する星数</dt>
+			<dd>{length: 5}</dd>
+			<dd>変更した場合はCSSで「div要素」と「ul要素」の横幅を設定して下さい。</dd>
+		<dt>選択できる星数</dt>
+			<dd>{step: 1}</dd>
+		<dt>無効化する</dt>
+			<dd>{disabled: 1}</dd>
+		<dt>星1つ分の幅px</dt>
+			<dd>{width: 20, height: 20}</dd>
+			<dd>画像を切り替えたい場合に設定して下さい。</dd>
+		<dt>データ送信先</dt>
+			<dd>{sendto: 'vote.php'}</dd>
+			<dd>クリックした時のデータ送信先を変更できます。</dd>
+		<dt>フォームで使う</dt>
+			<dd>{form: 'hidden要素のid'}</dd>
+			<dd>クリックした時にデータを送信せずに、フォーム要素に保持しておきたい場合は「hidden要素」のIDを設定して下さい。</dd>
+	</dl>
+</div>
+
+<div>
+	<h2>画像の変更</h2>
+	<p>☆はul要素の背景、★はli要素の背景としてCSSで表示させています。<br />
+	☆を最上部に配置して、★を最上部から40px(選択用)と80px(固定用)の位置に配置すると綺麗に重なります。<br />
+	ずれる場合は「li要素」の「background-position」で位置を調節して下さい。<br />
+	変更後は「width」「height」オプションと、「div要素」と「ul要素」の幅を変更して下さい。</p>
+</div>
+
+<div>
+	<h2>注意事項</h2>
+	<ul>
+		<li>「div class=&quot;star-rect&quot;」要素を改行してしまうと、「Firefox」で内部要素を取得できません。</li>
+		<li>「IE7」でも動作させたい場合は、CSSの「inherit」を使わずに親要素の「画像パス」に書き換えて下さい。</li>
+	</ul>
+</div>
+
+<div>
+	<h2>動作確認ブラウザ</h2>
+	<ul>
+		<li>IE 8.0.6</li>
+		<li>Firefox 3.5.3</li>
+		<li>Chrome 9.0.5</li>
+		<li>Safari 4.0.3</li>
+		<li>Safari iOS4.1</li>
+	</ul>
+</div>
+
+<div>
+	<address>Copyright (C) <a href="http://www.mt312.com/">MT312</a> All Rights Reserved.</address>
+</div>
+
+</body>
+</html>
